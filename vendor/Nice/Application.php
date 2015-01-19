@@ -2,6 +2,8 @@
 
 namespace Nice;
 
+use Nice\Module\ModuleFactory;
+
 /**
  * Application
  *
@@ -20,5 +22,10 @@ class Application
     public static function init() 
     {
         $config = require '../Config/Application.config.php';
+        foreach ($config['modules'] as $moduleName) {
+            require '../Module/' . $moduleName . '/Module.php';
+            $module = ModuleFactory::make($moduleName);
+            var_dump($module->getAutoloaderConfig());
+        }
     }
 }

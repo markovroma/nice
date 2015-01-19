@@ -1,11 +1,13 @@
 <?php
 
+namespace Application;
+
 /**
- * Description of Module
+ * Module application
  *
  * @author markov
  */
-class Module
+class Module extends \Nice\Module\Module
 {
-    //put your code here
+    
 }
