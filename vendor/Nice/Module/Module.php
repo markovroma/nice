@@ -14,8 +14,9 @@ abstract class Module
      */
     public function getAutoloaderConfig()
     {
+        $class = new \ReflectionClass(get_class($this));
         return [
-            'class' => get_class($this)
+            'namespace' => $class->getNamespaceName()
         ];
     }
 }
